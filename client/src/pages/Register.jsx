@@ -40,7 +40,7 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 flex items-center justify-center px-4 pt-16">
+    <div className="min-h-screen bg-slate-50 flex items-center justify-center px-4 pt-16">
       <div className="w-full max-w-md">
 
         <div className="text-center mb-8">
@@ -51,22 +51,22 @@ const Register = () => {
                 <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="white" strokeWidth="2" strokeLinejoin="round"/>
               </svg>
             </div>
-            <span className="text-white font-bold text-xl">Pranix<span className="text-teal-400">AI</span></span>
+            <span className="text-slate-900 font-bold text-xl">Pranix<span className="text-teal-500">AI</span></span>
           </Link>
-          <h1 className="text-2xl font-bold text-white">Create your account</h1>
-          <p className="text-slate-400 text-sm mt-2">Free forever. No credit card needed.</p>
+          <h1 className="text-2xl font-bold text-slate-900">Create your account</h1>
+          <p className="text-slate-500 text-sm mt-2">Free forever. No credit card needed.</p>
         </div>
 
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8">
+        <div className="bg-white border border-slate-200 shadow-sm rounded-2xl p-8">
           {error && (
-            <div className="bg-red-950/50 border border-red-800/50 text-red-400 text-sm px-4 py-3 rounded-xl mb-6">
+            <div className="bg-red-50 border border-red-200 text-red-600 text-sm px-4 py-3 rounded-xl mb-6">
               {error}
             </div>
           )}
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-2">Full name</label>
+              <label className="block text-sm font-medium text-slate-700 mb-2">Full name</label>
               <input
                 type="text"
                 name="name"
@@ -74,12 +74,12 @@ const Register = () => {
                 onChange={handleChange}
                 placeholder="Aryan Maurya"
                 required
-                className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-500 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500/30 transition-colors"
+                className="w-full bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500/30 transition-colors"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-2">Email</label>
+              <label className="block text-sm font-medium text-slate-700 mb-2">Email</label>
               <input
                 type="email"
                 name="email"
@@ -87,12 +87,12 @@ const Register = () => {
                 onChange={handleChange}
                 placeholder="you@example.com"
                 required
-                className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-500 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500/30 transition-colors"
+                className="w-full bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500/30 transition-colors"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-2">Password</label>
+              <label className="block text-sm font-medium text-slate-700 mb-2">Password</label>
               <input
                 type="password"
                 name="password"
@@ -100,7 +100,7 @@ const Register = () => {
                 onChange={handleChange}
                 placeholder="Min. 6 characters"
                 required
-                className="w-full bg-slate-800 border border-slate-700 text-white placeholder-slate-500 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500/30 transition-colors"
+                className="w-full bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500/30 transition-colors"
               />
             </div>
 
@@ -120,7 +120,7 @@ const Register = () => {
 
         <p className="text-center text-slate-500 text-sm mt-6">
           Already have an account?{' '}
-          <Link to="/login" className="text-teal-400 hover:text-teal-300 font-medium transition-colors">
+          <Link to="/login" className="text-teal-500 hover:text-teal-600 font-medium transition-colors">
             Sign in
           </Link>
         </p>
