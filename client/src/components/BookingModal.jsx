@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { useAuth } from '../context/AuthContext';
 import api from '../utils/api';
 
@@ -46,13 +47,17 @@ const BookingModal = ({ doctor, onClose, onSuccess }) => {
     }
   };
 
-  return (
+  // ── Portal renders modal at document.body level ──────────
+  // This escapes the Leaflet map's stacking context completely
+  return createPortal(
     <div
-      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-4"
-      style={{ background: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(4px)' }}
+      className="fixed inset-0 flex items-end sm:items-center justify-center p-4"
+      style={{ zIndex: 99999, background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(4px)' }}
       onClick={(e) => e.target === e.currentTarget && onClose()}>
 
-      <div className="bg-white rounded-3xl w-full max-w-md shadow-2xl overflow-hidden">
+      <div
+        className="bg-white rounded-3xl w-full max-w-md shadow-2xl overflow-hidden"
+        style={{ zIndex: 100000 }}>
 
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-slate-100">
@@ -77,7 +82,7 @@ const BookingModal = ({ doctor, onClose, onSuccess }) => {
           </div>
           <div>
             <p className="text-sm font-semibold text-teal-900">{doctor.name}</p>
-            <p className="text-xs text-teal-600">{doctor.address}</p>
+            <p className="text-xs text-teal-600">{doctor.address || 'Address not available'}</p>
           </div>
         </div>
 
@@ -91,29 +96,39 @@ const BookingModal = ({ doctor, onClose, onSuccess }) => {
 
           <div>
             <label className="block text-xs font-semibold text-slate-600 mb-1.5">Patient name</label>
-            <input type="text" name="patientName" value={form.patientName} onChange={handleChange} required
-              className="w-full border border-slate-200 bg-slate-50 text-slate-900 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/10 transition-all" />
+            <input
+              type="text" name="patientName" value={form.patientName}
+              onChange={handleChange} required
+              className="w-full border border-slate-200 bg-slate-50 text-slate-900 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/10 transition-all"
+            />
           </div>
 
           <div className="grid grid-cols-2 gap-3">
             <div>
               <label className="block text-xs font-semibold text-slate-600 mb-1.5">Date</label>
-              <input type="date" name="date" value={form.date} onChange={handleChange}
-                min={today} required
-                className="w-full border border-slate-200 bg-slate-50 text-slate-900 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/10 transition-all" />
+              <input
+                type="date" name="date" value={form.date}
+                onChange={handleChange} min={today} required
+                className="w-full border border-slate-200 bg-slate-50 text-slate-900 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/10 transition-all"
+              />
             </div>
             <div>
               <label className="block text-xs font-semibold text-slate-600 mb-1.5">Time</label>
-              <input type="time" name="time" value={form.time} onChange={handleChange} required
-                className="w-full border border-slate-200 bg-slate-50 text-slate-900 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/10 transition-all" />
+              <input
+                type="time" name="time" value={form.time}
+                onChange={handleChange} required
+                className="w-full border border-slate-200 bg-slate-50 text-slate-900 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/10 transition-all"
+              />
             </div>
           </div>
 
           <div>
             <label className="block text-xs font-semibold text-slate-600 mb-1.5">Reason for visit</label>
-            <textarea name="reason" value={form.reason} onChange={handleChange} rows={2}
+            <textarea
+              name="reason" value={form.reason} onChange={handleChange} rows={2}
               placeholder={result.condition || 'Describe the reason for your visit...'}
-              className="w-full border border-slate-200 bg-slate-50 text-slate-900 placeholder-slate-400 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/10 transition-all resize-none" />
+              className="w-full border border-slate-200 bg-slate-50 text-slate-900 placeholder-slate-400 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/10 transition-all resize-none"
+            />
           </div>
 
           <div className="flex gap-3 pt-1">
@@ -130,7 +145,8 @@ const BookingModal = ({ doctor, onClose, onSuccess }) => {
           </div>
         </form>
       </div>
-    </div>
+    </div>,
+    document.body  // ← This is the key — renders outside the map entirely
   );
 };
 

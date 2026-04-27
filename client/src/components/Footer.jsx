@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom';
 
+const HINDI_FONT = { fontFamily: "'Tiro Devanagari Hindi', serif", fontWeight: 700 };
+
 const Footer = () => {
   const year = new Date().getFullYear();
 
   const links = {
     Product: [
       { label: 'Home', to: '/' },
-      { label: 'About PranixAI', to: '/about' },
+      { label: 'About प्राण.AI', to: '/about' },
       { label: 'Check Symptoms', to: '/register' },
       { label: 'Find Doctors', to: '/register' },
     ],
@@ -67,19 +69,23 @@ const Footer = () => {
         {/* Top grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
 
-          {/* Brand col — 2 cols wide */}
+          {/* Brand col */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-teal-500 flex items-center justify-center">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="white" strokeWidth="2.2" strokeLinejoin="round"/>
-                  <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="white" strokeWidth="2.2" strokeLinejoin="round"/>
+              <div className="w-9 h-9 rounded-xl bg-teal-500 flex items-center justify-center flex-shrink-0">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M3 12h3l2-7 4 14 3-10 2 3h4"
+                    stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
-              <span className="font-bold text-lg">Pranix<span className="text-teal-400">AI</span></span>
+              <span className="text-xl leading-none select-none flex items-baseline gap-0">
+                <span style={HINDI_FONT} className="text-white text-[22px]">प्राण</span>
+                <span className="font-bold text-slate-400 text-lg">.</span>
+                <span className="font-bold text-teal-400 text-xl">AI</span>
+              </span>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed max-w-xs mb-6">
-              Where your symptoms meet their match. AI-powered preliminary health intelligence that thinks faster than a waiting room.
+              Where your symptoms meet their match. AI-powered preliminary health intelligence — because life (प्राण) deserves better than a waiting room.
             </p>
             <div className="flex items-center gap-3">
               {socials.map(s => (
@@ -110,11 +116,11 @@ const Footer = () => {
           ))}
         </div>
 
-        {/* Divider */}
+        {/* Divider + bottom */}
         <div className="border-t border-slate-800 pt-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex flex-col sm:flex-row items-center gap-1 text-slate-500 text-xs text-center sm:text-left">
-              <span>© {year} PranixAI. All rights reserved.</span>
+              <span>© {year} प्राण.AI. All rights reserved.</span>
               <span className="hidden sm:block">·</span>
               <span>Designed & built by <span className="text-teal-400 font-medium">Aryan Maurya</span></span>
             </div>
@@ -124,7 +130,7 @@ const Footer = () => {
             </div>
           </div>
           <p className="text-center text-slate-600 text-xs mt-4">
-            Powered by Google Gemini AI · Built with React, Node.js & MongoDB · Minor Project — B.Tech CSE Year 3, SAITM Gurugram
+            प्राण (Prāṇ) — Sanskrit for Life · Powered by Groq AI · Built with React, Node.js & MongoDB 
           </p>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import SeverityBadge from '../components/SeverityBadge';
+import usePageTitle from '../hooks/usePageTitle';
 
 const InfoCard = ({ icon, label, value, sub }) => (
   <div className="bg-white border border-slate-200 rounded-2xl p-5 hover:border-teal-200 hover:shadow-sm transition-all">
@@ -18,6 +19,7 @@ const InfoCard = ({ icon, label, value, sub }) => (
 );
 
 const Results = () => {
+  usePageTitle('Your Assessment');
   const [result, setResult] = useState(null);
   const [animate, setAnimate] = useState(false);
   const navigate = useNavigate();

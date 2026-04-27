@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom';
+import usePageTitle from '../hooks/usePageTitle';
 
-const About = () => (
-  <div className="bg-white min-h-screen pt-24 pb-20 px-4">
-    <div className="max-w-4xl mx-auto">
+const About = () => {
+  usePageTitle('About Us');
+
+  return (
+    <div className="bg-white min-h-screen pt-24 pb-20 px-4">
+      <div className="max-w-4xl mx-auto">
 
       <div className="text-center mb-16">
         <span className="inline-block bg-teal-50 text-teal-700 text-xs font-semibold tracking-widest uppercase px-3 py-1 rounded-full border border-teal-200 mb-4">About</span>
@@ -71,6 +75,7 @@ const About = () => (
       </div>
     </div>
   </div>
-);
+  
+);}
 
 export default About;

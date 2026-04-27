@@ -4,8 +4,11 @@ import api from '../utils/api';
 import MapView from '../components/MapView';
 import DoctorCard from '../components/DoctorCard';
 import BookingModal from '../components/BookingModal';
+import usePageTitle from '../hooks/usePageTitle';
 
 const NearbyDoctors = () => {
+  usePageTitle('Nearby Doctors');
+  
   const [doctors, setDoctors] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');

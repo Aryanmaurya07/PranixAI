@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../utils/api';
 import SeverityBadge from '../components/SeverityBadge';
+import usePageTitle from '../hooks/usePageTitle';
+
 
 const inputTypeIcon = {
   text: (
@@ -23,6 +25,8 @@ const inputTypeIcon = {
     </svg>
   )
 };
+
+
 
 const HistoryCard = ({ item }) => {
   const [expanded, setExpanded] = useState(false);
@@ -103,6 +107,7 @@ const HistoryCard = ({ item }) => {
 };
 
 const History = () => {
+  usePageTitle('Symptom History');
   const [history, setHistory] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState('all');

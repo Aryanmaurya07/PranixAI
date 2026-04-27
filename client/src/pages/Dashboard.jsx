@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import api from '../utils/api';
 import SeverityBadge from '../components/SeverityBadge';
+import usePageTitle from '../hooks/usePageTitle';
 
 const Dashboard = () => {
   const { user } = useAuth();
   const [recentHistory, setRecentHistory] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  usePageTitle('Dashboard');
+  
   useEffect(() => {
     api.get('/api/symptoms/history')
       .then(({ data }) => setRecentHistory((data.history || []).slice(0, 3)))

@@ -5,10 +5,12 @@ const Section = ({ title, children }) => (
   </div>
 );
 
-const Terms = () => (
-  <div className="bg-white min-h-screen pt-24 pb-20 px-4">
-    <div className="max-w-3xl mx-auto">
-      <div className="mb-12">
+const Terms = () => {
+  usePageTitle('Terms of Service');
+
+  return (
+    <div className="bg-white min-h-screen pt-24 pb-20 px-4">
+      <div className="max-w-3xl mx-auto">
         <span className="inline-block bg-teal-50 text-teal-700 text-xs font-semibold tracking-widest uppercase px-3 py-1 rounded-full border border-teal-200 mb-4">Legal</span>
         <h1 className="text-4xl font-extrabold text-slate-900 mb-3">Terms of Service</h1>
         <p className="text-slate-400 text-sm">Last updated: January 2025</p>
@@ -54,7 +56,7 @@ const Terms = () => (
         <p>For questions about these terms, contact us via the <a href="/contact" className="text-teal-600 hover:underline">Contact page</a>.</p>
       </Section>
     </div>
-  </div>
-);
+ 
+  );}
 
 export default Terms;

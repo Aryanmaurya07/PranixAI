@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import api from '../utils/api';
 import VoiceInput from '../components/VoiceInput';
 import ImageUpload from '../components/ImageUpload';
+import usePageTitle from '../hooks/usePageTitle';
 
 const tabs = [
   {
@@ -47,6 +48,8 @@ const examples = [
 ];
 
 const SymptomInput = () => {
+  usePageTitle('Check Symptoms');
+  
   const [activeTab, setActiveTab] = useState('text');
   const [textInput, setTextInput] = useState('');
   const [imageData, setImageData] = useState(null);
