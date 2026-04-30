@@ -23,7 +23,7 @@
 
 <br/>
 
-[🌐 Live Demo](#) &nbsp;·&nbsp; [✨ Features](#-features) &nbsp;·&nbsp; [🚀 Getting Started](#-getting-started) &nbsp;·&nbsp; [📡 API](#-api-endpoints) &nbsp;·&nbsp; [🔮 Roadmap](#-roadmap)
+[🌐 Live Demo](https://pran-ai-one.vercel.app) &nbsp;·&nbsp; [✨ Features](#-features) &nbsp;·&nbsp; [🚀 Getting Started](#-getting-started) &nbsp;·&nbsp; [📡 API](#-api-endpoints) &nbsp;·&nbsp; [🔮 Roadmap](#-roadmap)
 
 <br/>
 
@@ -53,6 +53,13 @@ India has **1 doctor per 1,456 patients** — the WHO recommends 1:1,000. But th
 **प्राण.AI** gives everyone instant access to intelligent preliminary health guidance — completely free, in their browser, in seconds.
 
 ---
+
+## 🚀 Live Demo
+
+🔗 **Live Website:** https://pran-ai-one.vercel.app
+
+---
+
 
 ## ✨ Features
 
@@ -174,6 +181,42 @@ Pran.AI/
 ```
 
 ---
+
+## 📸 Screenshots
+
+
+### 🏠 Landing Page
+
+![Landing](./assets/landing.png)
+
+### 🔐 Login / Register
+
+![Auth](./assets/login.png)
+
+### 📊 Dashboard
+
+![Dashboard](./assets/dashboard.png)
+
+### 📝 Symptom Input
+
+![Symptoms](./assets/symptoms.png)
+
+### 📋 Analysis Result
+
+![Result](./assets/result.png)
+
+### 📍 Nearby Doctors
+
+![Doctors](./assets/doctors.png)
+
+### 📅 Doctor Booking
+
+![Booking](./assets/booking.png)
+
+### 📅 History
+
+![History](./assets/history.png)
+
 
 ## 🚀 Getting Started
 
