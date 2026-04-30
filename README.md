@@ -207,7 +207,7 @@ Pran.AI/
 
 ### 📍 Nearby Doctors
 
-![Doctors](./assets/doctors.png)
+![Doctors](./assets/doctorNearby.png)
 
 ### 📅 Doctor Booking
 
